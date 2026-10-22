@@ -1,0 +1,42 @@
+# Media Lab
+
+> Reference library for content creation (short video, carousels, text posts, launch videos, thumbnails, event media): a brief-to-publish procedure, format specs, hook library, critique rubric and tested ffmpeg recipes. Packaged as a Claude Code plugin.
+
+## Start
+- [SKILL.md](plugins/media-lab/skills/media-lab/SKILL.md): procedure and hard rules
+- [AGENTS.md](AGENTS.md): how to use and extend
+
+## Playbook
+- [Brief](plugins/media-lab/skills/media-lab/playbook/01-brief.md)
+- [Package first](plugins/media-lab/skills/media-lab/playbook/02-package.md)
+- [Script](plugins/media-lab/skills/media-lab/playbook/03-script.md)
+- [Critique rubric](plugins/media-lab/skills/media-lab/playbook/critique.md)
+- [Edit](plugins/media-lab/skills/media-lab/playbook/04-edit.md)
+- [Verify + solved bugs](plugins/media-lab/skills/media-lab/playbook/05-verify.md)
+- [Voice](plugins/media-lab/skills/media-lab/playbook/voice.md)
+- [Event coverage](plugins/media-lab/skills/media-lab/playbook/06-event-coverage.md)
+
+## Formats
+- [Specs and safe zones](plugins/media-lab/skills/media-lab/formats/specs.md)
+- [Short video](plugins/media-lab/skills/media-lab/formats/short-video.md)
+- [Carousel](plugins/media-lab/skills/media-lab/formats/carousel.md)
+- [Text posts](plugins/media-lab/skills/media-lab/formats/text-posts.md)
+- [Launch video](plugins/media-lab/skills/media-lab/formats/launch-video.md)
+- [Thumbnails](plugins/media-lab/skills/media-lab/formats/thumbnail.md)
+
+## Hooks
+- [Hook and ending library](plugins/media-lab/skills/media-lab/hooks/hooks.md)
+- [Templates](plugins/media-lab/skills/media-lab/hooks/templates.md)
+
+## Recipes
+- [Choose a tool](plugins/media-lab/skills/media-lab/recipes/choose-a-tool.md)
+- [ffmpeg (tested)](plugins/media-lab/skills/media-lab/recipes/ffmpeg.md)
+- [MoviePy](plugins/media-lab/skills/media-lab/recipes/moviepy.md)
+- [Remotion](plugins/media-lab/skills/media-lab/recipes/remotion.md)
+- [Carousels and posters](plugins/media-lab/skills/media-lab/recipes/carousel.md)
+- [captions.py](plugins/media-lab/skills/media-lab/scripts/captions.py)
+
+## Research
+- [Existing tools](research/01-existing-tools.md)
+- [What works, with evidence levels](research/02-what-works.md)
+- [Inspiration and teardown template](research/03-inspiration.md)

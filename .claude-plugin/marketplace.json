@@ -1,0 +1,12 @@
+{
+  "name": "media-lab",
+  "description": "Harsh's reference library for content creation: brief-to-publish procedure, formats, hooks and tooling recipes.",
+  "owner": { "name": "Harsh Salunkhe" },
+  "plugins": [
+    {
+      "name": "media-lab",
+      "source": "./plugins/media-lab",
+      "description": "Make Shorts, Reels, carousels, posts, launch videos and thumbnails with a real procedure, specs, hook library, critique rubric and tested ffmpeg recipes."
+    }
+  ]
+}
