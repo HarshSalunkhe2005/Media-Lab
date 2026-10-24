@@ -23,4 +23,4 @@ Guide for AI agents using or extending Media Lab.
 
 ## Rules
 - Original content only; fictional names in demos; no copied paid prompts or creator scripts.
-- Commit as HarshSalunkhe2005 <nightfuryharsh@gmail.com>. No AI attribution in commits or files.
+- Commit as HarshSalunkhe2005.
