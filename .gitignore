@@ -1,7 +1,11 @@
 __pycache__/
 *.mp4
+!public/previews/*.mp4
 *.mov
 *.wav
 *.mp3
 out/
 .DS_Store
+node_modules/
+dist/
+.vercel/
