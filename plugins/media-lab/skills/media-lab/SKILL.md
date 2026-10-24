@@ -20,6 +20,13 @@ and the browsable site.
 5. **Verify** (`playbook/05-verify.md`): watch the output, check safe zones, captions, audio levels, length, file specs. For anything visual, also run the AI-look smell test in `playbook/taste.md`.
 6. **Publish and learn**: caption and post copy go through the `humanize` skill; log one metric to compare next time.
 
+## Worlds and rendered patterns
+
+The site (repo root, `/for-claude.md` live) routes a brief to one of eight **worlds** (Quiet Poetry, Tech Launch,
+Campus Event, Explainer, Data Story, Build Log, Warm Local, Faceless Story) and to rendered **patterns**
+(`patterns/src/<slug>.py`, previews in `public/previews/`). Pick a world first, start from its proof patterns,
+and render with `python patterns/render.py <slug>`.
+
 ## Read these files for the task (routing)
 
 Always: `playbook/01-brief.md` first, `playbook/05-verify.md` last. Not sure? Use `recipes/by-goal.md`.

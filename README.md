@@ -1,45 +1,44 @@
 # Media Lab
 
-A reference library for making content: Shorts, Reels, TikToks, carousels, LinkedIn and X posts, launch videos,
-thumbnails and event media. It's the media sibling of [UI Lab](https://ui-lab-weld.vercel.app): parts (formats, hooks,
-recipes) plus judgement (a procedure and a critique rubric), packaged as a Claude Code plugin.
+A reference library for making content that reads as made by a person: Shorts, Reels, carousels, thumbnails, captions
+and event media. It is the media sibling of [UI Lab](https://ui-lab-weld.vercel.app): a procedure (the playbook), eight
+named style **worlds**, and a gallery of **patterns** whose previews are real output of the repo's own Python + ffmpeg
+renderers. It also installs as a Claude Code plugin.
 
-## Install as a Claude Code plugin
+## Use it
+
+- **Site:** gallery, worlds, brief router and the full playbook (`npm install && npm run dev`, port 5190).
+- **Agents:** `/llms.txt`, `/llms-full.txt`, `/patterns.json`, `/worlds.json`, `/for-claude.md`, `/docs/<slug>.md`, `/skill/<path>`.
+- **Claude Code plugin:**
+  ```
+  /plugin marketplace add HarshSalunkhe2005/Media-Lab
+  /plugin install media-lab@media-lab
+  ```
+
+## Layout
 
 ```
-/plugin marketplace add HarshSalunkhe2005/Media-Lab
-/plugin install media-lab@media-lab
+src/meta.ts            patterns: single source of truth (gallery, llms.txt, patterns.json, docs)
+src/worlds.ts          8 worlds: type, colour, imagery, motion, rules, avoid, proof patterns
+src/router.ts          brief -> world -> patterns (validated at build)
+ai-index.ts            Vite plugin: generates the machine-readable files, fails the build on a bad slug/preview/path
+patterns/lib.py        shared Pillow/ffmpeg helpers (film grade, text-area shading, balanced wrap)
+patterns/src/*.py      one renderer per pattern; patterns/render.py renders previews into public/previews/
+patterns/assets/photos CC0 / public-domain photos via Openverse, credits.txt
+plugins/media-lab/     the Claude Code plugin: skills/media-lab/ (SKILL.md, playbook, formats, hooks, recipes, scripts)
+research/              existing tools, what works (with evidence levels), inspiration + teardown template
 ```
 
-The repo is private, so the machine needs GitHub access to it (signed-in `git` credentials or `GITHUB_TOKEN`).
-Once installed, the `media-lab` skill loads whenever you work on content.
+## Add a pattern
 
-## What's inside
-
-```
-.claude-plugin/marketplace.json      marketplace entry
-plugins/media-lab/                   the plugin
-  skills/media-lab/SKILL.md          entry point: procedure + hard rules
-  skills/media-lab/playbook/         brief, package, script, critique, edit, verify, voice, taste, event coverage
-  skills/media-lab/formats/          specs + safe zones, short video, carousel, text posts, launch video, thumbnails
-  skills/media-lab/hooks/            hooks, endings, caption/post templates, fill-in templates
-  skills/media-lab/recipes/          by goal, end-to-end Short, stock photos, choose a tool, ffmpeg, MoviePy, Remotion, carousels/posters
-  skills/media-lab/scripts/          captions.py (ASS word highlight), make_short.py (script -> captioned 9:16), photo_slide.py, moviepy_demo.py
-  skills/media-lab/examples/         example script + proof frame
-research/                            existing tools, what works (with evidence levels), inspiration + teardown template
-AGENTS.md, llms.txt                  machine-readable index
-```
-
-## Quick start: a captioned Short with free tools
-
-```bash
-pip install edge-tts
-python plugins/media-lab/skills/media-lab/scripts/make_short.py plugins/media-lab/skills/media-lab/examples/photo-sorter-short.txt out/
-```
+1. Write `patterns/src/<slug>.py` with `render(out: Path) -> Path` (use `patterns/lib.py`).
+2. `python patterns/render.py <slug>` (needs Pillow + ffmpeg; the two `short-*` patterns also need `edge-tts` and internet).
+3. Add an entry to `src/meta.ts`. Optionally add it as proof to a world in `src/worlds.ts`.
+4. `npm run build` validates everything.
 
 ## Rules
 
 - Original content only. Study techniques; never copy scripts, footage, thumbnails or paid prompts.
-- Demo content uses fictional names.
-- Numbers need a source; vendor stats are treated as hypotheses (see `research/02-what-works.md`).
-- Anything posted under Harsh's name goes through the `humanize` skill.
+- Examples use fictional names, teams and lines. Photos are CC0 / public domain only.
+- Numbers need a source; vendor stats are treated as hypotheses (`research/02-what-works.md`).
+- Every visual passes the AI-look smell test in `playbook/taste.md`.

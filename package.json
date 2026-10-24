@@ -1,0 +1,28 @@
+{
+  "name": "media-lab",
+  "private": true,
+  "version": "0.4.0",
+  "type": "module",
+  "description": "Reference library for content creation: worlds, rendered patterns, procedure, packaged as a Claude Code plugin.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "render": "python patterns/render.py"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.1",
+    "@fontsource/eb-garamond": "^5.1.1",
+    "marked": "^14.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

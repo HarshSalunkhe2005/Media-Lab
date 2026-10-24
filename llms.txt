@@ -3,6 +3,9 @@
 > Reference library for content creation (short video, carousels, text posts, launch videos, thumbnails, event media): a brief-to-publish procedure, format specs, hook library, critique rubric and tested ffmpeg recipes. Packaged as a Claude Code plugin.
 
 ## Start
+- Site router: /for-claude.md (generated from src/router.ts and src/worlds.ts)
+- Patterns: src/meta.ts, renderers in patterns/src/, previews in public/previews/
+- Worlds: src/worlds.ts
 - [SKILL.md](plugins/media-lab/skills/media-lab/SKILL.md): procedure and hard rules
 - [AGENTS.md](AGENTS.md): how to use and extend
 
