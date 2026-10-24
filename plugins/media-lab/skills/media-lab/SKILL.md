@@ -5,9 +5,9 @@ description: Use whenever you make social or video content - YouTube Shorts, Ins
 
 # Media Lab: content with judgement, not templates
 
-Media Lab is Harsh's reference library for content creation. Repo: `C:\Users\Harsh\Projects\Media-Lab`
-(GitHub `HarshSalunkhe2005/Media-Lab`, private). This skill folder holds everything an agent needs; the repo root adds
-`research/` (sources and evidence levels) and `tools/`.
+Media Lab is a reference library for content creation (GitHub `HarshSalunkhe2005/Media-Lab`). This skill folder holds
+everything an agent needs; the repo root adds `research/` (sources and evidence levels), `patterns/` (rendered examples)
+and the browsable site.
 
 ## Procedure (do not skip steps)
 

@@ -22,14 +22,14 @@ We rebuild ideas in our own words and code. Nothing here is copied.
 | [remotion-dev/template-tiktok](https://github.com/orgs/remotion-dev/repositories) and [Remotion resources](https://remotion.dev/resources) | Official TikTok-style caption template plus community helpers. | Starting point when a video needs animated type, not just burned-in captions. |
 | [GitHub topic: auto-captions](https://github.com/topics/auto-captions), [topic: moviepy](https://www.GitHub.com/topics/moviepy) | Many small Shorts automation repos. | Most stop at "stitch stock clips + TTS". The gap is judgement: hooks, critique, packaging. Media Lab fills that gap. |
 
-## Harsh's own prior work
+## Our own prior work
 
-- **ShortsAgent / YT-Bot** (`C:\Users\Harsh\Projects\ShortsAgent`): trend scout, writer and critic loop with scored verdicts
+- **YT-Bot (ShortsAgent)**, an earlier pipeline of ours: trend scout, writer and critic loop with scored verdicts
   (ship needs hook >= 7, retention >= 7, originality >= 6), edge-tts with word timestamps, per-scene images,
   ffmpeg Ken Burns motion, ASS word-highlight captions, human review bay, private-by-default upload with the
   synthetic-media flag. Media Lab generalises its rules into `hooks/`, `playbook/` and `recipes/ffmpeg.md`.
-- **SVL 26-27 media work**: posters, schedule and standings stories, award templates and photo sorting for a college
-  volleyball league. Lessons kept in `playbook/06-event-coverage.md` (templates that look native, not edited; date and
+- **College league media work**: posters, schedule and standings stories, award templates and photo sorting for a
+  multi-day sports league. Lessons kept in `playbook/06-event-coverage.md` (templates that look native, not edited; date and
   dedupe rules for sorting event media).
 
 ## Gaps nobody fills well (why Media Lab exists)
