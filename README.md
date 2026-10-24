@@ -22,11 +22,19 @@ plugins/media-lab/                   the plugin
   skills/media-lab/SKILL.md          entry point: procedure + hard rules
   skills/media-lab/playbook/         brief, package, script, critique, edit, verify, voice, event coverage
   skills/media-lab/formats/          specs + safe zones, short video, carousel, text posts, launch video, thumbnails
-  skills/media-lab/hooks/            hook and ending library, fill-in templates
-  skills/media-lab/recipes/          choose a tool, ffmpeg (tested), MoviePy, Remotion, carousels/posters
-  skills/media-lab/scripts/          captions.py: word timestamps -> highlighted ASS captions
+  skills/media-lab/hooks/            hooks, endings, caption/post templates, fill-in templates
+  skills/media-lab/recipes/          by goal, end-to-end Short, choose a tool, ffmpeg, MoviePy, Remotion, carousels/posters
+  skills/media-lab/scripts/          captions.py (ASS word highlight), make_short.py (script -> captioned 9:16), moviepy_demo.py
+  skills/media-lab/examples/         example script + proof frame
 research/                            existing tools, what works (with evidence levels), inspiration + teardown template
 AGENTS.md, llms.txt                  machine-readable index
+```
+
+## Quick start: a captioned Short with free tools
+
+```bash
+pip install edge-tts
+python plugins/media-lab/skills/media-lab/scripts/make_short.py plugins/media-lab/skills/media-lab/examples/photo-sorter-short.txt out/
 ```
 
 ## Rules

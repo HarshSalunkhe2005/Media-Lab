@@ -34,3 +34,33 @@ Avoid: "Hey guys", "In this video", "Did you know" (overused), logo stings, any 
 | Save prompt | list or reference content ("save this for your next edit") |
 | Send prompt | "send this to the friend who [specific behaviour]" |
 | Part 2 tease | only if part 2 actually exists or is scheduled |
+
+## More opening hooks (fictional examples)
+
+| Pattern | Shape | Example (fictional) |
+|---|---|---|
+| Time stamp | "It's [time] and [situation]." | "It's 2 AM and the final starts in nine hours." |
+| Price / cost reveal | "This cost [small amount]. Here's what it replaced." | "This poster template cost nothing. It replaced four hours a day." |
+| Wrong answer first | show the common attempt failing, then "do this instead" | a caption overflowing the frame, then the fix |
+| Comparison | "[A] vs [B] in [N] seconds." | "Blur fill vs dark panels: which looks less edited?" |
+| Rule of N | "The [N]-second rule for [thing]." | "The 2-second rule for every Short." |
+| Countdown stakes | "[N] [units] left to [goal]." | "Three sets left, and Ridgeway are down two." |
+| Insider detail | "Nobody tells you [specific thing] about [topic]." | "Nobody tells you WhatsApp rewrites your photo dates." |
+| Number in the frame | open on a large number, explain it | "212" on screen, then "duplicates, in one folder" |
+| Tiny demo | 1 s of the result working, no words, then the title | the app tagging photos live |
+| Reaction cut | open on a crowd/player reaction, then rewind to the play | |
+| Challenge | "Can [we/I] [do X] in [constraint]?" | "Can we edit a whole fest recap in one hour?" |
+| Myth label | on-screen "MYTH:" then the belief | "MYTH: carousels are dead." |
+
+## Caption and post templates (fictional)
+
+| Use | Template | Example |
+|---|---|---|
+| Short description | [promise restated] + [one detail] + 1-3 tags | "Sorting 600 fest photos without losing one. #eventmedia" |
+| Event result | [Team] [score] [Team]. [one moment]. [next fixture] | "Ridgeway 3-2 Northfield. Saved two match points in set five. Final is Sunday, 6:30 PM." |
+| Award post | [Award]: [Name] ([Team]). [one stat or moment] | "Best Setter: Kavya Rao (Harbour FC). 41 assists across the league." |
+| Launch caption | [what it does, plainly]. [who it's for]. [where] | "Pebble sorts event photos by real capture date. For club media teams. Link in comments." |
+| Carousel caption | [slide-1 promise in other words]. Save it for [moment]. | "Five checks before you post any Reel. Save it for your next upload." |
+| LinkedIn opener | [specific result] + [time/constraint] | "We sorted 730 event files across five days and lost none of them." |
+| Recap story | Day [N] in [number]s: [stat], [stat], [stat] | "Day 3 in numbers: 8 matches, 21 sets, 1 upset." |
+| Comment prompt | ask for a short, specific answer | "Which set was the best of the day: 2 or 5?" |

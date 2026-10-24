@@ -1,0 +1,6 @@
+This app sorted 600 event photos in one night.
+Pebble Club shot a three day fest on five different phones.
+Half the dates were wrong, because messaging apps strip the camera time.
+So the app reads the camera date first, and only then the send time.
+Anything it is not sure about goes to a separate folder for a human.
+Six hundred photos, five day folders, zero lost.

@@ -22,19 +22,24 @@
 - [Carousel](plugins/media-lab/skills/media-lab/formats/carousel.md)
 - [Text posts](plugins/media-lab/skills/media-lab/formats/text-posts.md)
 - [Launch video](plugins/media-lab/skills/media-lab/formats/launch-video.md)
-- [Thumbnails](plugins/media-lab/skills/media-lab/formats/thumbnail.md)
+- [Thumbnails + text overlay checklist](plugins/media-lab/skills/media-lab/formats/thumbnail.md)
 
 ## Hooks
-- [Hook and ending library](plugins/media-lab/skills/media-lab/hooks/hooks.md)
+- [Hooks, endings, caption templates](plugins/media-lab/skills/media-lab/hooks/hooks.md)
 - [Templates](plugins/media-lab/skills/media-lab/hooks/templates.md)
 
 ## Recipes
+- [Recipes by goal](plugins/media-lab/skills/media-lab/recipes/by-goal.md)
+- [End-to-end Short, free tools (tested)](plugins/media-lab/skills/media-lab/recipes/end-to-end-short.md)
 - [Choose a tool](plugins/media-lab/skills/media-lab/recipes/choose-a-tool.md)
 - [ffmpeg (tested)](plugins/media-lab/skills/media-lab/recipes/ffmpeg.md)
-- [MoviePy](plugins/media-lab/skills/media-lab/recipes/moviepy.md)
+- [MoviePy (tested)](plugins/media-lab/skills/media-lab/recipes/moviepy.md)
 - [Remotion](plugins/media-lab/skills/media-lab/recipes/remotion.md)
 - [Carousels and posters](plugins/media-lab/skills/media-lab/recipes/carousel.md)
 - [captions.py](plugins/media-lab/skills/media-lab/scripts/captions.py)
+- [make_short.py](plugins/media-lab/skills/media-lab/scripts/make_short.py)
+- [moviepy_demo.py](plugins/media-lab/skills/media-lab/scripts/moviepy_demo.py)
+- [Example script](plugins/media-lab/skills/media-lab/examples/photo-sorter-short.txt)
 
 ## Research
 - [Existing tools](research/01-existing-tools.md)

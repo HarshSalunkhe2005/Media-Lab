@@ -1,17 +1,19 @@
 # MoviePy recipes (MoviePy 2.x API)
 
-> Status: written against the MoviePy 2.x API but not run in this repo yet. The ffmpeg recipes are the tested path.
+> Status: tested 2026-10-25 with MoviePy 2.1.2 (Python 3.13, Windows). The runnable version is `scripts/moviepy_demo.py`:
+> `python moviepy_demo.py landscape.mp4 still1.jpg out.mp4` gives a 1080x1920 MP4 with audio. The snippet below is the same logic, annotated.
+> Install into its own venv (`pip install "moviepy>=2,<3"`); an old global MoviePy 0.2/1.x will not run it.
 
 Use MoviePy when the edit needs Python logic. For plain cuts and filters, ffmpeg is faster.
 
 ```python
-from moviepy import VideoFileClip, ImageClip, CompositeVideoClip, concatenate_videoclips, AudioFileClip, vfx
+from moviepy import ColorClip, VideoFileClip, ImageClip, CompositeVideoClip, concatenate_videoclips, AudioFileClip, vfx
 
 W, H = 1080, 1920
 
 # 1. Reframe landscape footage into 9:16 with dark panels
 src = VideoFileClip("in.mp4").resized(width=W)
-bg = ImageClip("panel_bg.png").with_duration(src.duration).resized((W, H))   # or ColorClip((W,H), (13,13,15))
+bg = ColorClip((W, H), color=(13, 13, 15)).with_duration(src.duration)
 vertical = CompositeVideoClip([bg, src.with_position("center")], size=(W, H))
 
 # 2. Stills to scenes with a slow zoom

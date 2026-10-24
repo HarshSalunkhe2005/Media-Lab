@@ -20,17 +20,24 @@ Media Lab is Harsh's reference library for content creation. Repo: `C:\Users\Har
 5. **Verify** (`playbook/05-verify.md`): watch the output, check safe zones, captions, audio levels, length, file specs.
 6. **Publish and learn**: caption and post copy go through the `humanize` skill; log one metric to compare next time.
 
-## Where things are
+## Read these files for the task (routing)
 
-| What | File |
+Always: `playbook/01-brief.md` first, `playbook/05-verify.md` last. Not sure? Use `recipes/by-goal.md`.
+
+| Task | Read |
 |---|---|
-| Format specs (sizes, lengths, safe zones) | `formats/specs.md` |
-| Per-format structures | `formats/short-video.md`, `formats/carousel.md`, `formats/text-posts.md`, `formats/launch-video.md`, `formats/thumbnail.md` |
-| Hook library + ending library | `hooks/hooks.md` |
-| Fill-in templates (script, carousel, post) | `hooks/templates.md` |
-| Voice rules | `playbook/voice.md` (defers to `humanize`) |
-| Event / college media (posters, stories, sorting photos) | `playbook/06-event-coverage.md` |
-| Tool recipes | `recipes/` |
+| Short / Reel / TikTok script | `formats/short-video.md`, `hooks/hooks.md`, `playbook/03-script.md`, `playbook/critique.md` |
+| Render a Short from a script (free tools) | `recipes/end-to-end-short.md` → `scripts/make_short.py` |
+| Edit real footage (cut, reframe, loudness, captions) | `playbook/04-edit.md`, `recipes/ffmpeg.md`, `formats/specs.md` |
+| Python-driven edit | `recipes/moviepy.md` → `scripts/moviepy_demo.py` |
+| Animated type / UI mockups | `recipes/remotion.md` |
+| Carousel or LinkedIn document | `formats/carousel.md`, `recipes/carousel.md`, `hooks/templates.md` |
+| LinkedIn / X / thread / launch post | `formats/text-posts.md`, `playbook/voice.md`, then `humanize` |
+| Launch video for a project | `formats/launch-video.md`, `recipes/by-goal.md` row 1 |
+| Thumbnail, cover, poster text | `formats/thumbnail.md` (incl. overlay checklist), `recipes/carousel.md` Option B |
+| Event coverage / sorting event media | `playbook/06-event-coverage.md` |
+| Packaging (title, hook, cover) | `playbook/02-package.md` |
+| Captions only | `scripts/captions.py`, `formats/specs.md` safe zones |
 
 ## Hard rules
 
