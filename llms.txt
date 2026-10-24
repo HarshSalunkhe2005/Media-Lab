@@ -14,6 +14,7 @@
 - [Edit](plugins/media-lab/skills/media-lab/playbook/04-edit.md)
 - [Verify + solved bugs](plugins/media-lab/skills/media-lab/playbook/05-verify.md)
 - [Voice](plugins/media-lab/skills/media-lab/playbook/voice.md)
+- [Taste: AI look vs human look + smell test](plugins/media-lab/skills/media-lab/playbook/taste.md)
 - [Event coverage](plugins/media-lab/skills/media-lab/playbook/06-event-coverage.md)
 
 ## Formats
@@ -35,9 +36,11 @@
 - [ffmpeg (tested)](plugins/media-lab/skills/media-lab/recipes/ffmpeg.md)
 - [MoviePy (tested)](plugins/media-lab/skills/media-lab/recipes/moviepy.md)
 - [Remotion](plugins/media-lab/skills/media-lab/recipes/remotion.md)
+- [Free real photos (Openverse, Unsplash, Pexels)](plugins/media-lab/skills/media-lab/recipes/stock-photos.md)
 - [Carousels and posters](plugins/media-lab/skills/media-lab/recipes/carousel.md)
 - [captions.py](plugins/media-lab/skills/media-lab/scripts/captions.py)
 - [make_short.py](plugins/media-lab/skills/media-lab/scripts/make_short.py)
+- [photo_slide.py](plugins/media-lab/skills/media-lab/scripts/photo_slide.py)
 - [moviepy_demo.py](plugins/media-lab/skills/media-lab/scripts/moviepy_demo.py)
 - [Example script](plugins/media-lab/skills/media-lab/examples/photo-sorter-short.txt)
 

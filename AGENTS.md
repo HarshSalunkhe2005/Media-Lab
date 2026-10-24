@@ -4,9 +4,10 @@ Guide for AI agents using or extending Media Lab.
 
 ## Using it
 1. Read `plugins/media-lab/skills/media-lab/SKILL.md` first (procedure, routing table, hard rules). `recipes/by-goal.md` maps goals to files.
-2. Follow the playbook in order: `01-brief` → `02-package` → `03-script` → `critique` → `04-edit` → `05-verify`.
-3. Pull specs from `formats/specs.md`, hooks from `hooks/hooks.md`, commands from `recipes/`.
-4. Final copy under Harsh's name goes through the global `humanize` skill.
+2. Visual work (carousels, quotes, thumbnails, posters): read `playbook/taste.md` first and run its smell test before showing anything.
+3. Follow the playbook in order: `01-brief` → `02-package` → `03-script` → `critique` → `04-edit` → `05-verify`.
+4. Pull specs from `formats/specs.md`, hooks from `hooks/hooks.md`, commands from `recipes/`.
+5. Final copy under Harsh's name goes through the global `humanize` skill.
 
 ## Extending it
 - New format: add `formats/<name>.md` (structure table, design rules, checks) and a row in `formats/specs.md`.

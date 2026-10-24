@@ -1,6 +1,6 @@
 {
   "name": "media-lab",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Content creation with judgement: brief, package, script, critique, edit, verify. Formats, hooks, ffmpeg/MoviePy/Remotion recipes.",
   "author": { "name": "Harsh Salunkhe" }
 }

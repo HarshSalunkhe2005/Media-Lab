@@ -20,11 +20,11 @@ Once installed, the `media-lab` skill loads whenever you work on content.
 .claude-plugin/marketplace.json      marketplace entry
 plugins/media-lab/                   the plugin
   skills/media-lab/SKILL.md          entry point: procedure + hard rules
-  skills/media-lab/playbook/         brief, package, script, critique, edit, verify, voice, event coverage
+  skills/media-lab/playbook/         brief, package, script, critique, edit, verify, voice, taste, event coverage
   skills/media-lab/formats/          specs + safe zones, short video, carousel, text posts, launch video, thumbnails
   skills/media-lab/hooks/            hooks, endings, caption/post templates, fill-in templates
-  skills/media-lab/recipes/          by goal, end-to-end Short, choose a tool, ffmpeg, MoviePy, Remotion, carousels/posters
-  skills/media-lab/scripts/          captions.py (ASS word highlight), make_short.py (script -> captioned 9:16), moviepy_demo.py
+  skills/media-lab/recipes/          by goal, end-to-end Short, stock photos, choose a tool, ffmpeg, MoviePy, Remotion, carousels/posters
+  skills/media-lab/scripts/          captions.py (ASS word highlight), make_short.py (script -> captioned 9:16), photo_slide.py, moviepy_demo.py
   skills/media-lab/examples/         example script + proof frame
 research/                            existing tools, what works (with evidence levels), inspiration + teardown template
 AGENTS.md, llms.txt                  machine-readable index

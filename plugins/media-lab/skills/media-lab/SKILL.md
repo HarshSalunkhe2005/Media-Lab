@@ -17,7 +17,7 @@ Media Lab is Harsh's reference library for content creation. Repo: `C:\Users\Har
    critique rubric (`playbook/critique.md`). Revise until it scores "ship". Kill weak ideas instead of polishing them.
 4. **Assets and edit** (`playbook/04-edit.md`): pick the tool with `recipes/choose-a-tool.md`, then follow
    `recipes/ffmpeg.md`, `recipes/moviepy.md` or `recipes/remotion.md`.
-5. **Verify** (`playbook/05-verify.md`): watch the output, check safe zones, captions, audio levels, length, file specs.
+5. **Verify** (`playbook/05-verify.md`): watch the output, check safe zones, captions, audio levels, length, file specs. For anything visual, also run the AI-look smell test in `playbook/taste.md`.
 6. **Publish and learn**: caption and post copy go through the `humanize` skill; log one metric to compare next time.
 
 ## Read these files for the task (routing)
@@ -31,10 +31,12 @@ Always: `playbook/01-brief.md` first, `playbook/05-verify.md` last. Not sure? Us
 | Edit real footage (cut, reframe, loudness, captions) | `playbook/04-edit.md`, `recipes/ffmpeg.md`, `formats/specs.md` |
 | Python-driven edit | `recipes/moviepy.md` → `scripts/moviepy_demo.py` |
 | Animated type / UI mockups | `recipes/remotion.md` |
-| Carousel or LinkedIn document | `formats/carousel.md`, `recipes/carousel.md`, `hooks/templates.md` |
+| Carousel or LinkedIn document | `playbook/taste.md` FIRST, then `formats/carousel.md`, `recipes/stock-photos.md`, `recipes/carousel.md`, `hooks/templates.md` |
+| Quote / poetry post | `playbook/taste.md` FIRST, then `recipes/stock-photos.md` → `scripts/photo_slide.py` |
 | LinkedIn / X / thread / launch post | `formats/text-posts.md`, `playbook/voice.md`, then `humanize` |
 | Launch video for a project | `formats/launch-video.md`, `recipes/by-goal.md` row 1 |
-| Thumbnail, cover, poster text | `formats/thumbnail.md` (incl. overlay checklist), `recipes/carousel.md` Option B |
+| Thumbnail, cover, poster text | `playbook/taste.md`, `formats/thumbnail.md` (incl. overlay checklist), `recipes/carousel.md` Option B |
+| Free real photos (legal sourcing) | `recipes/stock-photos.md` |
 | Event coverage / sorting event media | `playbook/06-event-coverage.md` |
 | Packaging (title, hook, cover) | `playbook/02-package.md` |
 | Captions only | `scripts/captions.py`, `formats/specs.md` safe zones |
