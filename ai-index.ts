@@ -16,7 +16,7 @@ import { CATEGORIES, META } from './src/meta'
 import { REFUSE, ROUTES } from './src/router'
 import { WORLDS } from './src/worlds'
 
-export const SITE = process.env.SITE_URL ?? 'https://media-lab-harsh.vercel.app'
+export const SITE = process.env.SITE_URL ?? 'https://media-lab-seven.vercel.app'
 const REPO = 'https://github.com/HarshSalunkhe2005/Media-Lab'
 const SKILL = 'plugins/media-lab/skills/media-lab'
 
