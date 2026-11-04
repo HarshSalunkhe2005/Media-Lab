@@ -52,7 +52,7 @@ export const WORLDS: World[] = [
     type: 'A friendly serif or rounded sans; one face.', colour: 'Warm, from the place itself.',
     imagery: 'Real photos of the place, people (with permission) and products; natural light.', motion: 'Slow stills, ambient sound.',
     rules: ['Useful info on every post (hours, price, date)', 'Photos taken there, not stock when possible'],
-    avoid: ['Stock smiling people', 'Neon gradients'], proof: ['carousel-cover-promise', 'cta-last-slide', 'short-kenburns-stills', 'cafe-menu-board', 'testimonial-card', 'before-after-split'] },
+    avoid: ['Stock smiling people', 'Neon gradients'], proof: ['carousel-cover-promise', 'cta-last-slide', 'short-kenburns-stills', 'cafe-menu-board', 'testimonial-card', 'before-after-split', 'brand-kit-three-ways'] },
   { id: 'faceless-story', name: 'Faceless Story', feel: 'A story told over pictures, held together by captions.',
     type: 'Bold captions, highlighted word, hook title in the first 2 s.', colour: 'Graded stills; captions in white and one highlight.',
     imagery: 'Real stills or footage per beat; never another creator\'s clips.', motion: 'Ken Burns on every still, cut per beat.',

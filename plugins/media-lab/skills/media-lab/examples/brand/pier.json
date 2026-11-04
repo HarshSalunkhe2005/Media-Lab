@@ -1,0 +1,16 @@
+{
+  "name": "Pier Road Market (fictional)",
+  "base": "retro-print",
+  "handle": "@pierroadmarket",
+  "colors": {
+    "accent": "#e2462f"
+  },
+  "fonts": {
+    "head": "display",
+    "body": "sans-semibold",
+    "num": "display"
+  },
+  "logo": "pier-logo.png",
+  "logo_position": "top-right",
+  "logo_size": 0.1
+}

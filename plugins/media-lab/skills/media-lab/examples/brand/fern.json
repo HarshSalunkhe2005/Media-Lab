@@ -1,0 +1,16 @@
+{
+  "name": "Fern Café (fictional)",
+  "base": "warm-local",
+  "handle": "@ferncafe",
+  "colors": {
+    "accent": "#2f6b4f"
+  },
+  "fonts": {
+    "head": "display-serif",
+    "body": "sans",
+    "num": "display-serif"
+  },
+  "logo": "fern-logo.png",
+  "logo_position": "top-right",
+  "logo_size": 0.09
+}

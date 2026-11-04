@@ -249,6 +249,40 @@ def audiogram(spec, t, out: Path):
     return out
 
 
+def overlay_logo(path: Path, spec) -> Path:
+    """Burn the brand logo into a finished video, in the same corner rules as stills (brand.stamp)."""
+    import shutil as _sh
+
+    from .brand import logo_layer
+    path = Path(path)
+    w, h = _probe_size(str(path))
+    with tempfile.TemporaryDirectory() as tmp:
+        layer = logo_layer(w, h, spec)
+        lp = Path(tmp) / "logo.png"
+        layer.save(lp)
+        tmp_out = Path(tmp) / "out.mp4"
+        has_audio = _has_audio(str(path))
+        ffmpeg("-i", str(path), "-i", str(lp), "-filter_complex", "[0:v][1:v]overlay=0:0", *(["-c:a", "copy"] if has_audio else ["-an"]),
+               "-c:v", "libx264", "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-crf", "30" if spec.get("preview") else "20", str(tmp_out))
+        _sh.move(str(tmp_out), str(path))
+    return path
+
+
+def _probe_size(path: str):
+    import subprocess
+    r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", path],
+                       capture_output=True, text=True, check=True)
+    w, h = r.stdout.strip().split(",")[:2]
+    return int(w), int(h)
+
+
+def _has_audio(path: str) -> bool:
+    import subprocess
+    r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=index", "-of", "csv=p=0", path],
+                       capture_output=True, text=True)
+    return bool(r.stdout.strip())
+
+
 def _probe_duration(path: str) -> float:
     import subprocess
     r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],

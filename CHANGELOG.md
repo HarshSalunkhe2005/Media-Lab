@@ -2,6 +2,19 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com). Versions follow the plugin (`plugins/media-lab/.claude-plugin/plugin.json`).
 
+## 1.1.0
+
+### Added
+- Brand kits: one `brand.json` (base theme, colours, fonts, handle, logo, logo corner and size) applied to any
+  spec with `"brand"` or `medialab make --brand`. Spec values still win. Logos are stamped on stills and burned into
+  video, kept inside the 9:16 safe area.
+- `medialab brand init` (starter file, never overwrites) and `medialab brand check` (text, muted and accent contrast,
+  fonts, logo transparency and size, position; exit 1 on fail).
+- Three fictional example kits in `examples/brand/`, the `brand-kit-three-ways` pattern (59 total), `recipes/brand-kit.md`.
+
+### Changed
+- The slide counter moves to the bottom-right when a logo takes the top-right corner.
+
 ## 1.0.0
 
 ### Added

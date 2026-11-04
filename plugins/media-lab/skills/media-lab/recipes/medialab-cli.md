@@ -36,6 +36,8 @@ python scripts/medialab check out/01.png --platform carousel
 - `size`: `4:5`, `1:1`, `9:16`, `16:9`, `x` (1200x675), `og` (1200x630), `linkedin`, or `[w, h]`.
 - A carousel writes `01.png ... NN.png`; `"pdf": true` adds `carousel.pdf` for a LinkedIn document.
 - Slides inherit the carousel's `theme`, `size` and `handle`; any slide can override them.
+- `"brand": "brand.json"` (or `make --brand brand.json`) applies a brand kit: colours, fonts, handle, logo.
+  See `recipes/brand-kit.md`; `brand init` and `brand check` create and validate one.
 
 ## Kinds
 

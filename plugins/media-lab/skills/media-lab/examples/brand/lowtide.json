@@ -1,0 +1,16 @@
+{
+  "name": "Low Tide Studio (fictional)",
+  "base": "tech-launch",
+  "handle": "@lowtide.studio",
+  "colors": {
+    "accent": "#5b8cff"
+  },
+  "fonts": {
+    "head": "sans-bold",
+    "body": "sans",
+    "num": "sans-black"
+  },
+  "logo": "lowtide-logo.png",
+  "logo_position": "bottom-right",
+  "logo_size": 0.08
+}

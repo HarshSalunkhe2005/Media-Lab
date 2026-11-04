@@ -194,6 +194,55 @@ class Check(unittest.TestCase):
             self.assertEqual(res["canvas"], "PASS")
 
 
+KITS = SKILL / "examples" / "brand"
+
+
+class Brand(unittest.TestCase):
+    def test_example_kits_pass_check(self):
+        from medialab.brand import check as bcheck
+        for kit in sorted(KITS.glob("*.json")):
+            rows = bcheck(kit)
+            self.assertFalse([r for r in rows if r[0] == "FAIL"], f"{kit.name}: {rows}")
+
+    def test_brand_sets_colours_handle_logo_and_spec_wins(self):
+        from medialab.brand import apply, load
+        b = load(KITS / "fern.json")
+        s = apply({"kind": "point", "title": "x", "colors": {"bg": "#ffffff"}}, b)
+        self.assertEqual(s["theme"], "warm-local")
+        self.assertEqual(s["colors"]["accent"], "#2f6b4f")
+        self.assertEqual(s["colors"]["bg"], "#ffffff", "spec colours override the brand")
+        self.assertEqual(s["handle"], "@ferncafe")
+        self.assertTrue(Path(s["logo"]).exists(), "logo path resolves next to brand.json")
+
+    def test_logo_is_drawn_in_its_corner(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            spec = {"kind": "text", "body": "x", "theme": "explainer"}
+            plain = build(spec, Path(tmp) / "a.png")[0]
+            branded = build({**spec, "brand": str(KITS / "fern.json")}, Path(tmp) / "b.png")[0]
+            with Image.open(plain) as a, Image.open(branded) as b:
+                box = (900, 40, 1040, 180)  # top-right corner where fern puts its logo
+                self.assertNotEqual(a.crop(box).tobytes(), b.crop(box).tobytes())
+                body = (0, 400, 1080, 1100)
+                self.assertEqual(a.crop(body).tobytes(), b.crop(body).tobytes(), "logo touches only its corner")
+
+    def test_bad_kits_fail(self):
+        from medialab.brand import check as bcheck
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / "bad.json"
+            p.write_text(json.dumps({"base": "explainer", "colors": {"bg": "#ffffff", "fg": "#eeeeee"},
+                                     "fonts": {"head": "comic-sans"}, "logo": "missing.png"}), encoding="utf-8")
+            failed = {r[1] for r in bcheck(p) if r[0] == "FAIL"}
+            self.assertTrue({"text on background", "font head", "logo"} <= failed, failed)
+
+    @unittest.skipUnless(HAS_FF, "ffmpeg not on PATH")
+    def test_logo_on_video(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            spec = {"kind": "kinetic", "text": "one two", "beat": 0.1, "hold": 0.3, "brand": str(KITS / "lowtide.json")}
+            out = build(spec, Path(tmp) / "k.mp4", preview=True)[0]
+            p = probe(out)
+            self.assertEqual((p["codec_name"], p["pix_fmt"]), ("h264", "yuv420p"))
+
+
 class Cli(unittest.TestCase):
     def run_cli(self, *args, ok=True):
         r = subprocess.run([*CLI, *args], capture_output=True, text=True)
@@ -206,6 +255,16 @@ class Cli(unittest.TestCase):
         self.assertIn("brutalist-mono", self.run_cli("themes").stdout)
         self.assertEqual(json.loads(self.run_cli("example", "poster").stdout)["kind"], "poster")
         self.assertEqual(self.run_cli("example", "nope", ok=False).returncode, 2)
+
+    def test_brand_init_check_and_make_flag(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            self.run_cli("brand", "init", str(tmp / "brand.json"))
+            self.assertEqual(self.run_cli("brand", "init", str(tmp / "brand.json"), ok=False).returncode, 2, "never overwrites")
+            self.run_cli("brand", "check", str(tmp / "brand.json"))
+            (tmp / "s.json").write_text(json.dumps({"kind": "point", "title": "Hello"}), encoding="utf-8")
+            out = self.run_cli("make", str(tmp / "s.json"), "--brand", str(KITS / "pier.json"), "-o", str(tmp / "o.png")).stdout.strip()
+            self.assertTrue(Path(out).exists())
 
     def test_make_then_check_from_a_spec_file(self):
         with tempfile.TemporaryDirectory() as tmp:

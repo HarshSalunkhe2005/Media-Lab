@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from . import brand as brandkit
 from . import stills, video
 from .themes import theme
 
@@ -50,6 +51,8 @@ def _theme(spec):
 
 def build(spec: dict, out: str | Path, base: str | Path = ".", preview: bool = False) -> list[Path]:
     """Render spec to out. Stills: out is a .png/.jpg file (or a folder for carousels). Video: an .mp4 path."""
+    if spec.get("brand"):
+        spec = brandkit.apply({k: v for k, v in spec.items() if k != "brand"}, brandkit.load(spec["brand"], Path(base)))
     spec = _resolve(spec, Path(base))
     out = Path(out)
     kind = spec.get("kind")
@@ -57,12 +60,12 @@ def build(spec: dict, out: str | Path, base: str | Path = ".", preview: bool = F
     if kind == "carousel":
         out.mkdir(parents=True, exist_ok=True)
         slides = spec["slides"]
-        shared = {k: v for k, v in spec.items() if k in ("size", "handle")}
+        shared = {k: v for k, v in spec.items() if k in ("size", "handle", "logo", "logo_position", "logo_size")}
         imgs, paths = [], []
         for i, s in enumerate(slides, 1):
             s = {**shared, **_resolve(s, Path(base)), "_index": i, "_total": len(slides)}
             st = _theme({**spec, **{k: s[k] for k in ("theme", "colors", "fonts") if k in s}})
-            img = stills.KINDS[s["kind"]](s, st)
+            img = brandkit.stamp(stills.KINDS[s["kind"]](s, st), s)
             imgs.append(img.convert("RGB"))
             paths.append(_save(img, out / f"{i:02d}.png", preview))
         if spec.get("pdf"):
@@ -71,10 +74,13 @@ def build(spec: dict, out: str | Path, base: str | Path = ".", preview: bool = F
             paths.append(pdf)
         return paths
     if kind in stills.KINDS:
-        return [_save(stills.KINDS[kind](spec, t), out, preview)]
+        return [_save(brandkit.stamp(stills.KINDS[kind](spec, t), spec), out, preview)]
     if kind in video.KINDS:
         out.parent.mkdir(parents=True, exist_ok=True)
-        return [video.KINDS[kind]({**spec, "preview": preview or spec.get("preview", False)}, t, out)]
+        res = video.KINDS[kind]({**spec, "preview": preview or spec.get("preview", False)}, t, out)
+        if spec.get("logo"):
+            video.overlay_logo(res, spec)
+        return [res]
     raise KeyError(f"unknown kind {kind!r}; run `medialab kinds`")
 
 

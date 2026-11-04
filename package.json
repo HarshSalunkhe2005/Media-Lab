@@ -1,7 +1,7 @@
 {
   "name": "media-lab",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Reference library for content creation: worlds, rendered patterns, procedure, packaged as a Claude Code plugin.",
   "scripts": {

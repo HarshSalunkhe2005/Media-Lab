@@ -61,7 +61,10 @@ def _colours(t, on_photo: bool):
 def _counter(d, t, w, h, spec, fg):
     n, total = spec.get("_index"), spec.get("_total")
     if n and total and spec.get("counter", True):
-        d.text((w - M, M - 20), f"{n}/{total}", font=font(t["body"], 30), fill=fg, anchor="ra")
+        if spec.get("logo") and spec.get("logo_position", "top-right") == "top-right":
+            d.text((w - M, h - M + 10), f"{n}/{total}", font=font(t["body"], 30), fill=fg, anchor="rs")  # logo owns the top corner
+        else:
+            d.text((w - M, M - 20), f"{n}/{total}", font=font(t["body"], 30), fill=fg, anchor="ra")
 
 
 def _handle(d, t, w, h, spec, fg):

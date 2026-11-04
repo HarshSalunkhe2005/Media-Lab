@@ -12,7 +12,7 @@ It is the media sibling of [UI Lab](https://ui-lab-weld.vercel.app).
 
 **Live site:** https://media-lab-seven.vercel.app
 
-![Twelve of the 58 patterns, all rendered by this repo](public/showcase.jpg)
+![Twelve of the 59 patterns, all rendered by this repo](public/showcase.jpg)
 
 ## What you get
 
@@ -20,8 +20,9 @@ It is the media sibling of [UI Lab](https://ui-lab-weld.vercel.app).
 |---|---|
 | **Procedure** | Brief → package → script → critique → edit → verify. Gated: the agent writes the brief and the hook before it touches a renderer. |
 | **12 worlds** | Named styles with type, colour, imagery, motion and "avoid" rules: Quiet Poetry, Tech Launch, Campus Event, Explainer, Data Story, Build Log, Warm Local, Faceless Story, Editorial, Retro Print, Brutalist Mono, Soft Pastel. |
-| **58 patterns** | Carousels, posts, stories, event media, thumbnails, hooks, captions, Shorts and reframes. Every preview is real output of the repo's own renderers. |
+| **59 patterns** | Carousels, posts, stories, event media, thumbnails, hooks, captions, Shorts and reframes. Every preview is real output of the repo's own renderers. |
 | **`medialab` CLI** | 24 still kinds + 7 video kinds from one JSON/YAML spec. Carousels export a LinkedIn-ready PDF. Fonts bundled, so output matches on every OS. |
+| **Brand kits** | One `brand.json` (colours, fonts, handle, logo) and every render is on brand. `medialab brand check` tests contrast and assets first. |
 | **`medialab check`** | Canvas, duration, codec, yuv420p, faststart, black opening, EBU R128 loudness and true peak, silent start, text in the app's UI zones, contrast at feed size. Exit code 1 on fail. |
 | **Reference** | Format specs and safe zones, a hook library, critique rubric, taste smell test, tested ffmpeg / MoviePy / Remotion recipes, research with evidence levels. |
 

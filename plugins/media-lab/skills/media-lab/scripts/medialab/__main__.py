@@ -29,6 +29,10 @@ def main(argv=None) -> int:
     m = sub.add_parser("make", help="render a spec file (JSON or YAML)")
     m.add_argument("spec")
     m.add_argument("-o", "--out", help="output file, or folder for a carousel (default: next to the spec)")
+    m.add_argument("--brand", help="brand.json to apply (overrides the spec's own \"brand\")")
+    b = sub.add_parser("brand", help="brand kit: init a brand.json, or check one")
+    b.add_argument("action", choices=["init", "check"])
+    b.add_argument("file", nargs="?", default="brand.json")
     c = sub.add_parser("check", help="pre-publish checks for an image or video")
     c.add_argument("file")
     c.add_argument("--platform", "-p", required=True, choices=sorted(PLATFORMS))
@@ -42,6 +46,8 @@ def main(argv=None) -> int:
     if a.cmd == "make":
         spec = load(a.spec)
         src = Path(a.spec)
+        if a.brand:
+            spec["brand"] = str(Path(a.brand).resolve())
         default = src.with_suffix("") if spec.get("kind") == "carousel" else src.with_suffix(".mp4" if spec.get("kind") in video.KINDS else ".png")
         for p in build(spec, a.out or default, base=src.parent):
             print(p)
@@ -50,6 +56,20 @@ def main(argv=None) -> int:
         res = check(a.file, a.platform)
         print(report(a.file, a.platform, res, a.json))
         return 1 if any(r.status == "FAIL" for r in res) else 0
+    if a.cmd == "brand":
+        from medialab import brand as brandkit
+        p = Path(a.file)
+        if a.action == "init":
+            if p.exists():
+                print(f"{p} already exists; not overwriting", file=sys.stderr)
+                return 2
+            p.write_text(json.dumps(brandkit.STARTER, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            print(f"wrote {p}: edit name, colours, fonts and logo, then run `medialab brand check {p}`")
+            return 0
+        rows = brandkit.check(p)
+        for st, name, detail in rows:
+            print(f"  {st:4s}  {name:22s} {detail}")
+        return 1 if any(r[0] == "FAIL" for r in rows) else 0
     if a.cmd == "kinds":
         print("stills:")
         for k, fn in stills.KINDS.items():

@@ -1,6 +1,6 @@
 {
   "name": "media-lab",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Content creation with judgement and a renderer: brief, package, script, critique, edit, verify; 12 style worlds; a CLI that turns a JSON brief into carousels, LinkedIn PDFs, posts, stories, thumbnails and Shorts, then checks them against platform specs.",
   "author": {
     "name": "Harsh Salunkhe"

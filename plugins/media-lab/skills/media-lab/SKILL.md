@@ -26,7 +26,7 @@ and the browsable site.
 
 The site (repo root, `/for-claude.md` live) routes a brief to one of twelve **worlds** (Quiet Poetry, Tech Launch,
 Campus Event, Explainer, Data Story, Build Log, Warm Local, Faceless Story, Editorial, Retro Print, Brutalist Mono,
-Soft Pastel) and to 58 rendered **patterns** (`patterns/src/<slug>.py`, previews in `public/previews/`). Pick a world
+Soft Pastel) and to 59 rendered **patterns** (`patterns/src/<slug>.py`, previews in `public/previews/`). Pick a world
 first, start from its proof patterns.
 
 ## Build with the CLI (fastest path to a real file)
@@ -39,7 +39,8 @@ python scripts/medialab make brief.json -o out/
 python scripts/medialab check out/01.png --platform carousel
 ```
 
-Full reference: `recipes/medialab-cli.md`. Write the words with the playbook first; the CLI only lays them out.
+Full reference: `recipes/medialab-cli.md`. For a client or a recurring account, make a `brand.json` once
+(`recipes/brand-kit.md`) and pass `--brand brand.json` to every render. Write the words with the playbook first; the CLI only lays them out.
 
 ## Read these files for the task (routing)
 
@@ -62,6 +63,7 @@ Always: `playbook/01-brief.md` first, `playbook/05-verify.md` last. Not sure? Us
 | Packaging (title, hook, cover) | `playbook/02-package.md` |
 | Captions only | `scripts/captions.py`, `formats/specs.md` safe zones |
 | Render any still, carousel, PDF or simple video from a brief | `recipes/medialab-cli.md` → `scripts/medialab` |
+| Make every render match one brand (colours, fonts, handle, logo) | `recipes/brand-kit.md` → `scripts/medialab brand` |
 | Story frames (poll, countdown, link, update) | `formats/stories.md`, `recipes/medialab-cli.md` |
 | Pre-publish file check (any format) | `recipes/medialab-cli.md` (check), then `playbook/05-verify.md` |
 

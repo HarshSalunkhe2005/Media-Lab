@@ -257,4 +257,8 @@ export const META: PatternMeta[] = [
     summary: "A still card (show, title, guest) with a live waveform drawn from the audio, above the caption zone.",
     when: ["Podcast and interview clips", "Voice notes and radio segments"],
     recipe: ["formats/short-video.md", "recipes/ffmpeg.md", "recipes/medialab-cli.md"], tags: ["audiogram", "podcast", "waveform", "audio"], preview: P("audiogram-waveform", "mp4") },
+  { slug: "brand-kit-three-ways", title: "One spec, three brands", category: "Carousels", format: "1080x1350 (4:5)",
+    summary: "The same slide spec rendered with three brand.json files: colours, fonts, handle and logo change, the words and layout stay.",
+    when: ["Agencies and freelancers running several accounts", "Keeping a long-running account consistent", "Handing a style to a teammate or another agent"],
+    recipe: ["recipes/brand-kit.md", "recipes/medialab-cli.md"], tags: ["brand kit", "logo", "consistency", "agency"], preview: P("brand-kit-three-ways") },
 ]

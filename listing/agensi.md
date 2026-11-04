@@ -19,7 +19,8 @@ slideshow. Before anything goes out, `medialab check` measures canvas, codec, pi
 openings, EBU R128 loudness, true peak, text inside the app's UI zones and contrast at feed size, and exits non-zero
 on a failure.
 
-- 58 patterns across carousels, posts, stories, event media, thumbnails, hooks, captions, Shorts and reframes
+- Brand kits: one brand.json keeps colours, fonts, handle and logo consistent across every render
+- 59 patterns across carousels, posts, stories, event media, thumbnails, hooks, captions, Shorts and reframes
 - 12 worlds (Editorial, Retro Print, Brutalist Mono, Soft Pastel, Tech Launch, Campus Event and more) with
   "avoid" rules that keep output from looking generated
 - 24 still kinds and 7 video kinds from one JSON or YAML spec; bundled OFL fonts, so output matches on every OS

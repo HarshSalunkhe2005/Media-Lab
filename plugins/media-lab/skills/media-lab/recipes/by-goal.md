@@ -21,3 +21,4 @@ Pick the goal, read the files in order. Every route starts with `playbook/01-bri
 | **Podcast clip as a Short** | `formats/short-video.md` | The guest's best line as the title | `recipes/medialab-cli.md` (`kind: audiogram`), then `scripts/captions.py` | Cut the clip to its strongest 30-45 s first. |
 | **Quote, testimonial, menu or poster post** | `formats/text-posts.md`, `playbook/taste.md` | — | `recipes/medialab-cli.md` (`quote`, `testimonial`, `menu`, `poster`) | Real names only with permission; demos stay fictional. |
 | **Check a file before posting** | `formats/specs.md` | — | `python scripts/medialab check <file> -p <platform>` | Exit code 1 on FAIL; still watch it yourself. |
+| **Keep a client or account on brand** | `playbook/taste.md` | — | `recipes/brand-kit.md` (`brand init`, `brand check`, `--brand`) | Check contrast before the first post; same logo corner every time. |
