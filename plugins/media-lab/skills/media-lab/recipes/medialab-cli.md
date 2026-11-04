@@ -11,7 +11,7 @@ looks the same on every machine. Video kinds and `check` on video need ffmpeg + 
 pip install pillow                      # pyyaml too if you want YAML specs
 python scripts/medialab kinds           # what a spec can be
 python scripts/medialab themes          # one theme per world
-python scripts/medialab example carousel > brief.json
+python scripts/medialab example carousel > brief.json   # renders as-is: media points at examples/media/ samples
 python scripts/medialab make brief.json -o out/
 python scripts/medialab check out/01.png --platform carousel
 ```

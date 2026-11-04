@@ -130,6 +130,24 @@ class Stills(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             build({"kind": "cover", "title": "x", "photo": "/nope.jpg"}, Path(tempfile.gettempdir()) / "x.png")
 
+    def test_every_example_media_file_is_bundled(self):
+        """`medialab example` must print a spec that renders as-is."""
+        samples = SKILL / "examples" / "media"
+
+        def media(v):
+            if isinstance(v, dict):
+                for k, x in v.items():
+                    yield from media(x) if not isinstance(x, str) else ([x] if k in ("photo", "audio", "top", "bottom", "main", "inset") else [])
+                    if k == "photos":
+                        yield from x
+            elif isinstance(v, list):
+                for x in v:
+                    yield from media(x)
+
+        for kind, spec in EXAMPLES.items():
+            for name in media(spec):
+                self.assertTrue((samples / name).is_file(), f"{kind}: {name} missing from examples/media/")
+
     def test_unknown_kind_and_theme(self):
         with self.assertRaises(KeyError):
             build({"kind": "hologram"}, Path(tempfile.gettempdir()) / "x.png")

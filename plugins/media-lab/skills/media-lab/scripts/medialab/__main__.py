@@ -18,6 +18,26 @@ from medialab.make import build, load  # noqa: E402
 from medialab.themes import THEMES  # noqa: E402
 
 
+SAMPLES = Path(__file__).resolve().parent.parent.parent / "examples" / "media"
+
+
+def _with_samples(spec):
+    """Point a starter spec's media at the bundled samples, so it renders as printed."""
+    if isinstance(spec, list):
+        return [_with_samples(x) for x in spec]
+    if not isinstance(spec, dict):
+        return spec
+    out = {}
+    for k, v in spec.items():
+        if isinstance(v, str) and (SAMPLES / v).is_file():
+            out[k] = (SAMPLES / v).as_posix()
+        elif isinstance(v, list) and v and all(isinstance(x, str) and (SAMPLES / x).is_file() for x in v):
+            out[k] = [(SAMPLES / x).as_posix() for x in v]
+        else:
+            out[k] = _with_samples(v)
+    return out
+
+
 def _doc(fn):
     return (inspect.getdoc(fn) or "").split("\n")[0]
 
@@ -87,7 +107,9 @@ def main(argv=None) -> int:
         if a.kind not in EXAMPLES:
             print(f"no example for {a.kind!r}; one of: {', '.join(EXAMPLES)}", file=sys.stderr)
             return 2
-        print(json.dumps(EXAMPLES[a.kind], indent=2, ensure_ascii=False))
+        if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to cp1252
+            sys.stdout.reconfigure(encoding="utf-8")
+        print(json.dumps(_with_samples(EXAMPLES[a.kind]), indent=2, ensure_ascii=False))
         return 0
     ap.print_help()
     return 0

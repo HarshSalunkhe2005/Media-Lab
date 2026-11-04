@@ -2,6 +2,14 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com). Versions follow the plugin (`plugins/media-lab/.claude-plugin/plugin.json`).
 
+## 1.1.1
+
+### Fixed
+- `medialab example <kind>` now prints a spec that renders as-is: media paths point at bundled samples in
+  `examples/media/` (CC0 photos, short clips, generated audio; credits in `examples/media/credits.txt`).
+  Before, 15 of 32 starter specs failed with "photo not found".
+- `medialab example` no longer crashes or garbles non-ASCII text (₹, é, ·) on Windows consoles.
+
 ## 1.1.0
 
 ### Added

@@ -1,0 +1,11 @@
+Sample files for `medialab example`, so every starter spec renders out of the box.
+Photos: CC0 / public domain via Openverse (StockSnap), resized. No attribution required; recorded anyway.
+photo.jpg  Cup Mug, Pawel Kadysz
+face.jpg   Girl Sad, Milada Vigerova
+a.jpg      Laptop Desk, Kelly Ishmael
+1.jpg      Neon Street, Ethan Brooke
+2.jpg      Autumn Leaves, Free Nature Stock
+3.jpg      Hobbies Sports, Emile-Victor Portenart
+4.jpg      People Ball, William Stitt
+Videos (*.mp4) are slow zooms made from these photos. Audio (*.mp3) is generated tones.
+Replace them with your own media.
