@@ -1,6 +1,6 @@
 ---
 name: media-lab
-description: Use whenever you make social or video content - YouTube Shorts, Instagram Reels, TikToks, carousels, LinkedIn or X posts, threads, launch or promo videos, thumbnails, captions, scripts, hooks, event posters/stories - or edit, caption, reframe or render video with ffmpeg, MoviePy or Remotion. Gives the brief-to-publish procedure, format specs and safe zones, a hook library, a critique rubric and tested tooling recipes. Not for website UI (use ui-lab).
+description: Use whenever you make social or video content - YouTube Shorts, Instagram Reels, TikToks, carousels, LinkedIn documents, X or LinkedIn posts, stories, launch or promo videos, thumbnails, end screens, audiograms, captions, scripts, hooks, event posters - or edit, caption, reframe or render video with ffmpeg, MoviePy or Remotion. Gives the brief-to-publish procedure, format specs and safe zones, a hook library, a critique rubric, 12 style worlds, and a CLI that renders a JSON brief to finished PNG/PDF/MP4 and checks files against platform specs before posting. Not for website UI (use ui-lab).
 ---
 
 # Media Lab: content with judgement, not templates
@@ -17,15 +17,29 @@ and the browsable site.
    critique rubric (`playbook/critique.md`). Revise until it scores "ship". Kill weak ideas instead of polishing them.
 4. **Assets and edit** (`playbook/04-edit.md`): pick the tool with `recipes/choose-a-tool.md`, then follow
    `recipes/ffmpeg.md`, `recipes/moviepy.md` or `recipes/remotion.md`.
-5. **Verify** (`playbook/05-verify.md`): watch the output, check safe zones, captions, audio levels, length, file specs. For anything visual, also run the AI-look smell test in `playbook/taste.md`.
+5. **Verify** (`playbook/05-verify.md`): run `python scripts/medialab check <file> --platform <p>` (canvas, codec,
+   loudness, black opening, UI zones, contrast at feed size), then watch the output yourself. For anything visual,
+   also run the AI-look smell test in `playbook/taste.md`.
 6. **Publish and learn**: caption and post copy go through the `humanize` skill; log one metric to compare next time.
 
 ## Worlds and rendered patterns
 
-The site (repo root, `/for-claude.md` live) routes a brief to one of eight **worlds** (Quiet Poetry, Tech Launch,
-Campus Event, Explainer, Data Story, Build Log, Warm Local, Faceless Story) and to rendered **patterns**
-(`patterns/src/<slug>.py`, previews in `public/previews/`). Pick a world first, start from its proof patterns,
-and render with `python patterns/render.py <slug>`.
+The site (repo root, `/for-claude.md` live) routes a brief to one of twelve **worlds** (Quiet Poetry, Tech Launch,
+Campus Event, Explainer, Data Story, Build Log, Warm Local, Faceless Story, Editorial, Retro Print, Brutalist Mono,
+Soft Pastel) and to 58 rendered **patterns** (`patterns/src/<slug>.py`, previews in `public/previews/`). Pick a world
+first, start from its proof patterns.
+
+## Build with the CLI (fastest path to a real file)
+
+`scripts/medialab` renders a JSON (or YAML) brief to PNG, PDF or MP4. Each world is a theme; fonts are bundled.
+
+```bash
+python scripts/medialab example carousel > brief.json   # or: kinds, themes, example <kind>
+python scripts/medialab make brief.json -o out/
+python scripts/medialab check out/01.png --platform carousel
+```
+
+Full reference: `recipes/medialab-cli.md`. Write the words with the playbook first; the CLI only lays them out.
 
 ## Read these files for the task (routing)
 
@@ -47,6 +61,9 @@ Always: `playbook/01-brief.md` first, `playbook/05-verify.md` last. Not sure? Us
 | Event coverage / sorting event media | `playbook/06-event-coverage.md` |
 | Packaging (title, hook, cover) | `playbook/02-package.md` |
 | Captions only | `scripts/captions.py`, `formats/specs.md` safe zones |
+| Render any still, carousel, PDF or simple video from a brief | `recipes/medialab-cli.md` → `scripts/medialab` |
+| Story frames (poll, countdown, link, update) | `formats/stories.md`, `recipes/medialab-cli.md` |
+| Pre-publish file check (any format) | `recipes/medialab-cli.md` (check), then `playbook/05-verify.md` |
 
 ## Hard rules
 

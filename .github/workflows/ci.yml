@@ -1,7 +1,7 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  build:
+  site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -9,7 +9,21 @@ jobs:
         with: { node-version: 20, cache: npm }
       - run: npm ci
       - run: npm run build
+  medialab:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - name: Python syntax check
-        run: python -m py_compile patterns/*.py patterns/src/*.py plugins/media-lab/skills/media-lab/scripts/*.py
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install pillow pyyaml
+      - name: Syntax
+        run: python -m py_compile patterns/*.py patterns/src/*.py plugins/media-lab/skills/media-lab/scripts/*.py plugins/media-lab/skills/media-lab/scripts/medialab/*.py tools/*.py
+      - name: Unit + CLI tests
+        run: python tools/test_medialab.py
+      - name: Every offline pattern renders
+        run: |
+          slugs=$(ls patterns/src/*.py | xargs -n1 basename | sed 's/\.py$//' | grep -v '^_' | grep -v '^short-')
+          python patterns/render.py $slugs
+      - name: Skill package builds
+        run: python tools/build_skill.py

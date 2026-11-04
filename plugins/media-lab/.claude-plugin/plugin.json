@@ -1,6 +1,8 @@
 {
   "name": "media-lab",
-  "version": "0.4.0",
-  "description": "Content creation with judgement: brief, package, script, critique, edit, verify. Formats, hooks, ffmpeg/MoviePy/Remotion recipes.",
-  "author": { "name": "Harsh Salunkhe" }
+  "version": "1.0.0",
+  "description": "Content creation with judgement and a renderer: brief, package, script, critique, edit, verify; 12 style worlds; a CLI that turns a JSON brief into carousels, LinkedIn PDFs, posts, stories, thumbnails and Shorts, then checks them against platform specs.",
+  "author": {
+    "name": "Harsh Salunkhe"
+  }
 }

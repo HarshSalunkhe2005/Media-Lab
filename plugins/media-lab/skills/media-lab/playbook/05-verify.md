@@ -23,4 +23,10 @@ Grab proof frames: `ffmpeg -ss 1 -i out.mp4 -frames:v 1 check_1s.jpg` (repeat at
 - **drawtext box glyphs at line breaks**: a multi-line `textfile` shows a box at each break (ffmpeg 8, Windows). Draw one `drawtext` per line.
 - **drawtext uses a monospace fallback / "Fontconfig error"**: Windows ffmpeg has no fontconfig. Pass `fontfile='C\:/Windows/Fonts/arialbd.ttf'` (escape the colon).
 - **edge-tts voice comes out around -20 LUFS**: add `loudnorm=I=-14:TP=-1.5:LRA=11` on the final mux.
+- **Currency sign renders as a box (₹ in a price)**: latin-subset web fonts drop it. `medialab` draws non-Latin
+  characters in prices with the bundled `sans-ext` face; for other text, pass a full font file in `fonts`.
+- **Text on a halftone photo disappears**: ink-coloured dots under ink-coloured type. Tint the dots toward the paper
+  (the `statement` kind does this) so the type is the only full-strength ink.
+- **Previews look different on another machine**: system fonts differ by OS. Fonts are bundled in `assets/fonts/` now;
+  never point a renderer at `C:/Windows/Fonts`.
 - **Old MoviePy installed globally**: MoviePy 2 code fails on 0.2/1.x. Use a venv with `moviepy>=2,<3`.

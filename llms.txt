@@ -27,6 +27,7 @@
 - [Text posts](plugins/media-lab/skills/media-lab/formats/text-posts.md)
 - [Launch video](plugins/media-lab/skills/media-lab/formats/launch-video.md)
 - [Thumbnails + text overlay checklist](plugins/media-lab/skills/media-lab/formats/thumbnail.md)
+- [Stories: safe zones, poll / countdown / link frames](plugins/media-lab/skills/media-lab/formats/stories.md)
 
 ## Hooks
 - [Hooks, endings, caption templates](plugins/media-lab/skills/media-lab/hooks/hooks.md)
@@ -41,6 +42,7 @@
 - [Remotion](plugins/media-lab/skills/media-lab/recipes/remotion.md)
 - [Free real photos (Openverse, Unsplash, Pexels)](plugins/media-lab/skills/media-lab/recipes/stock-photos.md)
 - [Carousels and posters](plugins/media-lab/skills/media-lab/recipes/carousel.md)
+- [medialab CLI: brief to PNG/PDF/MP4, plus pre-publish check (tested)](plugins/media-lab/skills/media-lab/recipes/medialab-cli.md)
 - [captions.py](plugins/media-lab/skills/media-lab/scripts/captions.py)
 - [make_short.py](plugins/media-lab/skills/media-lab/scripts/make_short.py)
 - [photo_slide.py](plugins/media-lab/skills/media-lab/scripts/photo_slide.py)
