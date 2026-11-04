@@ -10,3 +10,7 @@ node_modules/
 dist/
 .vercel/
 release/
+
+# sample media for `medialab example` (small, must ship)
+!plugins/media-lab/skills/media-lab/examples/media/*.mp4
+!plugins/media-lab/skills/media-lab/examples/media/*.mp3
