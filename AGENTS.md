@@ -18,7 +18,7 @@ Guide for AI agents using or extending Media Lab.
 - Solved a bug? Add it to "Known bugs already solved" in `playbook/05-verify.md`.
 - New research: add to `research/` with links and an evidence level (strong / medium / weak).
 - Teardowns: `research/teardowns/<name>.md` using the template in `research/03-inspiration.md`.
-- Keep `SKILL.md` routing, `recipes/by-goal.md`, `README.md` and `llms.txt` in sync when adding files. The site's `/llms.txt` is generated; the root `llms.txt` is the repo-local index.
+- Keep `SKILL.md` routing, `recipes/by-goal.md`, `README.md` and `llms.txt` in sync when adding files. `npm run build` fails if a skill .md is missing from `SKILL.md` or the root `llms.txt`. The site's `/llms.txt` is generated; the root `llms.txt` is the repo-local index.
 - Bump `version` in `plugins/media-lab/.claude-plugin/plugin.json` when the skill changes, and run `claude plugin validate .`.
 
 ## Rules

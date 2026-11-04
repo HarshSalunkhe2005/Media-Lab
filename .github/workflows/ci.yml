@@ -1,0 +1,15 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Python syntax check
+        run: python -m py_compile patterns/*.py patterns/src/*.py plugins/media-lab/skills/media-lab/scripts/*.py

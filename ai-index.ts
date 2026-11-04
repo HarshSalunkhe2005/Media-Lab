@@ -7,7 +7,8 @@
  *   /docs/<slug>.md  one doc per pattern: metadata, when to use, recipe links, full renderer source
  *   /skill/<path>    every file of the Claude skill (playbook, formats, hooks, recipes, scripts)
  *   /raw/<path>      renderer sources (patterns/lib.py, patterns/src/*.py)
- * Validates on every build: renderer file, preview, recipe paths, world proofs and router slugs must exist.
+ * Validates on every build: renderer file, preview, recipe paths, world proofs and router slugs must exist;
+ * no orphan renderers; every skill .md is linked from SKILL.md and llms.txt.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, resolve } from 'node:path'
@@ -45,6 +46,16 @@ function validate() {
     if (!worlds.has(r.world)) errors.push(`route "${r.brief}": unknown world ${r.world}`)
     for (const s of r.start) if (!slugs.has(s)) errors.push(`route "${r.brief}": unknown pattern ${s}`)
     for (const f of r.read) if (!existsSync(resolve(__dirname, SKILL, f))) errors.push(`route "${r.brief}": ${f} not found`)
+  }
+  // Orphan renderers: a .py in patterns/src with no meta.ts entry
+  for (const f of readdirSync(resolve(__dirname, 'patterns/src')))
+    if (f.endsWith('.py') && !f.startsWith('_') && !slugs.has(f.slice(0, -3))) errors.push(`patterns/src/${f}: no entry in meta.ts`)
+  // Index drift: every skill .md must be linked from SKILL.md and the root llms.txt
+  const skillMd = read(`${SKILL}/SKILL.md`), llms = read('llms.txt')
+  for (const f of skillFiles().filter((f) => f.endsWith('.md') && !f.endsWith('/SKILL.md'))) {
+    const rel = f.slice(SKILL.length + 1)
+    if (!skillMd.includes(rel)) errors.push(`${rel}: not referenced in SKILL.md`)
+    if (!llms.includes(rel)) errors.push(`${rel}: not listed in llms.txt`)
   }
   if (errors.length) throw new Error('Media Lab metadata errors:\n  ' + errors.join('\n  '))
 }
